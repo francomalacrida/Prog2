@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from datetime import datetime
 import json
-import daten
 
 app = Flask("__name__")
 
@@ -28,34 +27,34 @@ def result():
       print(result['Note'])
 
       #Speichern des Resultats als json-File
-      def speichern(datei, key, value):
-        try:
-            with open(datei) as open_file:
-                datei_inhalt = json.load(open_file)
-            except FileNotFoundError:
-                datei_inhalt = {}
+      #def speichern(datei, key, value):
+      #  try:
+      #      with open(datei) as open_file:
+      #          datei_inhalt = json.load(open_file)
+      #      except FileNotFoundError:
+      #          datei_inhalt = {}
 
-            print(datei_inhalt)
+      #      print(datei_inhalt)
 
-            with open(datei, "w") as open_file:
-                json.dump(datei_inhalt, open_file)
+       #     with open(datei, "w") as open_file:
+       #         json.dump(datei_inhalt, open_file)
 
-      def resultat_speichern(resultat):
-        datei_name = "resultat.json"
-        zeitpunkt = datetime.now()
-        speichern(date_name, zeitpunkt, resultat)
-        return zeitpunkt, resultat
+      #def resultat_speichern(resultat):
+      #  datei_name = "resultat.json"
+      #  zeitpunkt = datetime.now()
+      #  speichern(date_name, zeitpunkt, resultat)
+      #  return zeitpunkt, resultat
 
-      def resultat_laden():
-          datei_name = "resultat.json"
+      #def resultat_laden():
+      #    datei_name = "resultat.json"
 
-          try: 
-            with open(datei_name) as open_file:
-                datei_inhalt = json.load(open_file)
-          except FileNotFoundError:
-            datei_inhalt = {}
+      #    try: 
+      #      with open(datei_name) as open_file:
+      #          datei_inhalt = json.load(open_file)
+      #    except FileNotFoundError:
+      #      datei_inhalt = {}
 
-            return datei_inhalt
+      #      return datei_inhalt
 
 
 
