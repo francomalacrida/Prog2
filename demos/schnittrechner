@@ -1,0 +1,34 @@
+noten = [
+    {
+        "name": "Malacrida",
+        "vorname": "Franco",
+        "semester": "1. Semester",
+        "fach": "Mathe",
+        "note": "5"
+    },
+    {
+        "name": "Malacrida",
+        "vorname": "Franco",
+        "semester": "1. Semester",
+        "fach": "PROG2",
+        "note": "6"
+    },
+    {
+        "name": "Fuchs",
+        "vorname": "Robin",
+        "semester": "1. Semester",
+        "fach": "VWL",
+        "note": "4"
+    }
+]
+
+name = "Malacrida"
+vorname = "Franco"
+semester = "1. Semester"
+
+summe_noten = 0
+anzahl_noten = 0
+for eintrag in noten:
+    if eintrag["name"] == name and eintrag["vorname"] == vorname and eintrag["semester"] == semester:
+        summe_noten += float(eintrag["note"])
+        anzahl_noten += 1
