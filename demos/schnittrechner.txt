@@ -1,1 +1,0 @@
-schnittrechner muss unter render_template durchschnitt.html, eine spalte links von if, aber immer noch in der def durchschnitt eingefügt werden.
