@@ -18,7 +18,7 @@ def home():
 def upload():
     return render_template('student.html')
 
-@app.route('/durchschnitt')
+@app.route('/auswahl')
 def auswahl():
     return render_template('auswahl.html')
 
@@ -66,7 +66,7 @@ def durchschnitt():
    if request.method == 'POST':
       durchschnitt = request.form
       print(durchschnitt)
-      #alle_noten = read_data_from_json("notenrechner.json")
+      gesamte_auswahl = read_data_from_json("notenrechner.json")
       name = durchschnitt['Name']
       vorname = durchschnitt['Vorname']
       semester = durchschnitt['Semester']
@@ -76,7 +76,16 @@ def durchschnitt():
         "semester": semester
       }
 
-      return render_template("durchschnitt.html",result = neue_auswahl)   
+      return render_template("durchschnitt.html",result = neue_auswahl)  
+
+  #Hier muss irgendwie das Dict. der Noten eingefügt werden, wie?    
+  #Hier muss irgendwie das oben erstellte dict. neue_auswahl eingefügt werden, wie?
+  #summe_noten = 0
+  #anzahl_noten = 0
+  #for eintrag in noten:
+      #if eintrag["name"] == name and eintrag["vorname"] == vorname and eintrag["semester"] == semester:
+          #summe_noten += float(eintrag["note"])
+          #anzahl_noten += 1    
 
 if __name__ == '__main__':
    app.run(debug = True, port=5000)
