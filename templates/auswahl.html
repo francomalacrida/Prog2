@@ -1,8 +1,8 @@
-{% extends "nav.html" %}
+{% include "nav.html" %}
 
 {% block content %}
 
-      <form action = "/result" method = "POST">
+      <form method = "POST">
          <p>Name <input type = "text" name = "Name" /></p>
          <p>Vorname <input type = "text" name = "Vorname" /></p>
          <p>Semester <input type = "text" name = "Semester" /></p>
@@ -12,3 +12,4 @@
 </html>
 
 {% endblock content %}
+{% include "footer.html" %}

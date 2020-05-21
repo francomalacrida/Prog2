@@ -1,9 +1,9 @@
-{% extends "nav.html" %}
+{% include "nav.html" %}
 
 {% block content %}
 
       <table border = 1>
-         {% for key, value in durchschnitt.items() %}
+         {% for key, value in data.items() %}
             <tr>
                <th> {{ key }} </th>
                <td> {{ value }} </td>
@@ -14,3 +14,4 @@
 </html>
 
 {% endblock content %}
+{% include "footer.html" %}
