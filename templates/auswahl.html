@@ -1,15 +1,31 @@
 {% include "nav.html" %}
 
 {% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <body class="text-left">
+            <form method = "POST">
+            <form class="form-signin">
+                <h1 class="h3 mb-3 font-weight-normal">Berechnung eines Semesterschnittes</h1>
+                    <p>Für die Auswahl des Studenten und des Semesters gebe die gewünschten Daten im untenstehenden Formular ein. Mit "Berechnen" wird der Schnitt des jeweiligen Studenten und Semesters ausgegeben.</p>
+                    <p></p>
+                    <label for="nachname" class="sr-only">Nachname</label>
+                    <input type="text" id="Name" class="form-control" name="Name" placeholder="Nachname">
+                    <p></p>
+                    <label for="vorname" class="sr-only">Vorname</label>
+                    <input type="text" id="Vorname" class="form-control" name="Vorname" placeholder="Vorname">
+                    <p></p>
+                    <label for="semester" class="sr-only">Semester</label>
+                    <input type="text" id="Semester" class="form-control" name="Semester" placeholder="Semester">
+                    <p></p>
+                    <button class="btn btn-lg btn-primary btn-block"> <input class="btn btn-lg btn-primary btn-blocktype" type="submit" value = "Berechnen!" /></button>
+            </form>
+            </form>
+        </body>
+    </div>
+</div> 
+   
 
-      <form method = "POST">
-         <p>Name <input type = "text" name = "Name" /></p>
-         <p>Vorname <input type = "text" name = "Vorname" /></p>
-         <p>Semester <input type = "text" name = "Semester" /></p>
-         <p><input type = "submit" value = "submit" /></p>
-      </form>
-   </body>
-</html>
 
 {% endblock content %}
 {% include "footer.html" %}

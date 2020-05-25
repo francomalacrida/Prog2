@@ -3,12 +3,37 @@
 {% block content %}
 
 <!-- Titel des Semesters-->
-        <div class="jumbotron jumbotron-fluid">
-             <div class="container">
-                <h1 class="display-4">Franco's Notenrechner</h1>
-                <p class="lead">Dieser Notenrechner ist dazu da, den Überblick über die bereits erbrachten Leistungserweise nicht zu verlieren.</p>
-            </div>
+        
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Der Notenrechner</h1>
+          <p>Der Notenrechner ist die Applikation um die Übersicht über die Noten von dir und deinen Freunden zu behalten. Beginne sofort mit der Erfassung eurer Noten!</p>
+          <p><a class="btn btn-primary btn-lg" href="{{ url_for('result') }}" role="button">START UPLOADING!</a></p>
         </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Dashboard</h2>
+            <p>Mit dem Dashboard hast du ab jetzt immer die Übersicht über die bereits erfassten Noten des gewählten Studenten. Gebe einfach den Nachnamen und den Vornamen des Studenten ein und es werden dir sämtliche bereits erfassten Noten dieses Studenten angezeigt. </p>
+            <p><a class="btn btn-secondary" href="{{ url_for('dashboard') }}" role="button">Dashboard</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Semesterschnitt</h2>
+            <p>Um den Schnitt eines Studenten von einem spezifischen Semesters zu berechnen, hilft dir die Funktion "Semesterschnitt". Erfasse einfach den Nachnamen, den Vornamen des Studenten sowie das gewünschte Semester und der Notenrechner gibt dir sofort den Schnitt der bereits erfassten Noten dieses Semesters aus. </p>
+            <p><a class="btn btn-secondary" href="{{ url_for('durchschnitt') }}" role="button">Semesterschnitt</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Studiumsschnitt</h2>
+            <p>Du möchtest wissen wie der momentan gesamte Schnitt über alle Semester hinaus von einem Studenten ist? Dann hilft dir die Funktion Studiumsschnitt weiter. Erfasse einfach den Nachnamen und den Vornamen des gewünschten Studenten und schon wird dir der Schnitt von allen Fächern über alle Semester hinaus ausgegeben.</p>
+            <p><a class="btn btn-secondary" href="{{ url_for('gesamtschnitt') }}" role="button">Studiumsschnitt</a></p>
+          </div>
+        </div>
+
 {% endblock content %}
 
 {% include "footer.html" %}

@@ -2,13 +2,26 @@
 
 {% block content %}
 
-      <form method = "POST">
-         <p>Name <input type = "text" name = "Name" /></p>
-         <p>Vorname <input type = "text" name = "Vorname" /></p>
-         <p><input type = "submit" value = "submit" /></p>
-      </form>
-   </body>
-</html>
+<div class="jumbotron">
+    <div class="container">
+        <body class="text-left">
+            <form method = "POST">
+            <form class="form-signin">
+                <h1 class="h3 mb-3 font-weight-normal">Übersicht eines Studenten</h1>
+                    <p>Um die Übersicht aller bereits erfassten Noten zu bekommen, gebe im untenstehenden Formular die Daten des gewünschten Studenten ein. Der Notenrechner gibt danach eine Übersicht über sämtliche bereits erfassten Noten eines Studenten aus.</p>
+                    <p></p>
+                    <label for="nachname" class="sr-only">Nachname</label>
+                    <input type="text" id="Name" class="form-control" name="Name" placeholder="Nachname">
+                    <p></p>
+                    <label for="vorname" class="sr-only">Vorname</label>
+                    <input type="text" id="Vorname" class="form-control" name="Vorname" placeholder="Vorname">
+                    <p></p>
+                    <button class="btn btn-lg btn-primary btn-block"> <input class="btn btn-lg btn-primary btn-blocktype" type="submit" value = "Berechnen!" /></button>
+            </form>
+            </form>
+        </body>
+    </div>
+</div> 
 
 {% endblock content %}
 {% include "footer.html" %}
