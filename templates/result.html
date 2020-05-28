@@ -2,14 +2,23 @@
 
 {% block content %}
 
-      <table border = 1>
-         {% for key, value in result.items() %}
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-         {% endfor %}
-      </table>
+<div class="jumbotron">
+    <div class = "container">
+        <h1 class="h3 mb-3 font-weight-normal">Die soeben erfassten Daten</h1>
+        <div class = "table table-bordered table-light">
+            <table border = 0 >
+                {% for key, value in result.items() %}
+                <thead>
+                    <tr>
+                        <th> {{ key }} </th>
+                        <td> {{ value }} </td>
+                    </tr>
+                </thead>   
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>    
 
 {% endblock content %}
 {% include "footer.html" %}
