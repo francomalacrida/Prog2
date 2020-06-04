@@ -3,8 +3,8 @@ from flask import render_template
 from flask import request
 from flask import jsonify
 from flask import url_for
-from datetime import datetime
 import json
+#Für die korrekte Funktion der Applikation müssen sämtliche obenstehende Module importiert werden. 
 
 app = Flask("__name__")
 
