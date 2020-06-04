@@ -7,16 +7,16 @@
             <form method = "POST">
             <form class="form-signin">
                 <h1 class="h3 mb-3 font-weight-normal">Berechnung eines Semesterschnittes</h1>
-                    <p>Für die Auswahl des Studenten und des Semesters gebe die gewünschten Daten im untenstehenden Formular ein. Mit "Berechnen" wird der Schnitt des jeweiligen Studenten und Semesters ausgegeben.</p>
+                    <p>Für die Auswahl des Studenten und des Semesters gebe die gewünschten Daten im untenstehenden Formular ein. Mit "Berechnen" wird der Schnitt des jeweiligen Studenten und Semesters auf zwei Nachkommastellen gerundet ausgegeben.</p>
                     <p></p>
                     <label for="nachname" class="sr-only">Nachname</label>
-                    <input type="text" id="Name" class="form-control" name="Name" placeholder="Nachname">
+                    <input type="text" id="Name" class="form-control" name="Name" placeholder="Nachname" required>
                     <p></p>
                     <label for="vorname" class="sr-only">Vorname</label>
-                    <input type="text" id="Vorname" class="form-control" name="Vorname" placeholder="Vorname">
+                    <input type="text" id="Vorname" class="form-control" name="Vorname" placeholder="Vorname" required>
                     <p></p>
                     <label for="semester" class="sr-only">Semester</label>
-                    <input type="text" id="Semester" class="form-control" name="Semester" placeholder="Semester">
+                    <input type="text" id="Semester" class="form-control" name="Semester" placeholder="Semester" required>
                     <p></p>
                     <button class="btn btn-lg btn-primary btn-block"> <input class="btn btn-lg btn-primary btn-blocktype" type="submit" value = "Berechnen!" /></button>
             </form>

@@ -8,13 +8,13 @@
             <form method = "POST">
             <form class="form-signin">
                 <h1 class="h3 mb-3 font-weight-normal">Berechnung eines Studiumschnittes</h1>
-                    <p>Für die Auswahl des Studenten gebe die gewünschten Daten im untenstehenden Formular ein. Mit "Berechnen" wird der Schnitt sämtlicher bisher erfassten Noten des jeweiligen Studenten  ausgegeben.</p>
+                    <p>Für die Auswahl des Studenten gebe die gewünschten Daten im untenstehenden Formular ein. Mit "Berechnen" wird der Schnitt sämtlicher bisher erfassten Noten des jeweiligen Studenten auf zwei Nachkommastellen gerundet ausgegeben.</p>
                     <p></p>
                     <label for="nachname" class="sr-only">Nachname</label>
-                    <input type="text" id="Name" class="form-control" name="Name" placeholder="Nachname">
+                    <input type="text" id="Name" class="form-control" name="Name" placeholder="Nachname" required>
                     <p></p>
                     <label for="vorname" class="sr-only">Vorname</label>
-                    <input type="text" id="Vorname" class="form-control" name="Vorname" placeholder="Vorname">
+                    <input type="text" id="Vorname" class="form-control" name="Vorname" placeholder="Vorname" required>
                     <p></p>
                     <button class="btn btn-lg btn-primary btn-block"> <input class="btn btn-lg btn-primary btn-blocktype" type="submit" value = "Berechnen!" /></button>
             </form>

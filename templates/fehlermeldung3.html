@@ -1,0 +1,15 @@
+{% include "nav.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class = "container">
+        <h1 class="h3 mb-3 font-weight-normal">Error!</h1>
+        {{fehlermeldung3}}
+        <p></p>
+        <p><a class="btn btn-secondary" href="{{ url_for('dashboard') }}" role="button">Zurück</a></p>
+    </div>
+</div>
+
+{% endblock content %}
+{% include "footer.html" %}

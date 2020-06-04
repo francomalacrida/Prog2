@@ -7,13 +7,21 @@
         <h1 class="h3 mb-3 font-weight-normal">Die Übersicht aller Noten eines Studenten</h1>
         <div class = "table table-bordered table-light">
             <table border = 0 >
-                {% for key, value in alle_voneinem.items() %}
                 <thead>
                     <tr>
-                        <th> {{ key }} </th>
-                        <td> {{ value }} </td>
-                    /tr>
-                </thead>   
+                        <th scope="col">Semester</th>
+                        <th scope="col">Fach</th>
+                        <th scope="col">Note</th>
+                    </tr>
+                </thead>
+                {% for eintrag in liste: %}  
+                <tbody>
+                    <tr>
+                        <th scope="col"> {{ eintrag["semester"] }} </th>
+                        <th scope="col"> {{ eintrag["fach"] }} </th>
+                        <th scope="col"> {{ eintrag["note"] }} </th>
+                    </tr>
+                </tbody>   
                 {% endfor %}
             </table>
         </div>
