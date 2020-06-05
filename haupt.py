@@ -45,6 +45,7 @@ def result():
         semester = formulardaten['Semester']
         fach = formulardaten['Fach']
         note = formulardaten['Note']
+        vonwem = name + " " + vorname
         neue_noten = {
             "name": name,
             "vorname": vorname,
@@ -56,13 +57,14 @@ def result():
         alle_noten.append(neue_noten)
         write_data_to_json("notenrechner.json", alle_noten)
 
-        return render_template("result.html", result=formulardaten)
+        return render_template("result.html", result=formulardaten, vonwem=vonwem)
     return render_template('student.html')
 
 
 #Mit der Funktion durchschnitt soll der Durchschnitt eines Semesters eines erfassten Studenten berechnet werden. 
 #Falls in der app.route "/durchschnitt" POST-Daten vorhanden sind, wird if ausgeführt. Falls keine POST-Daten vorhanden sind, wird das Template auswahl.html gerendert.
 #In auswahl.html befindet sich ein Formular, in welchem der gewünschte Name, Vorname und das Semester angegeben werden soll. Für diese Angaben wird danach der Schnitt aller erfassten Noten für dieses Semester berechnet und auf zwei Stellen gerundet. Das Resultat wird im File durchschnitt.html gerendert.
+#Falls die im Formular auswahl.html eingegebenen Daten nicht mit den Daten im Json-File übereinstimmen, wird die Fehlermeldung bei else erstellt und die HTML-Page "fehlermeldung.html" ausgegeben.
 @app.route('/durchschnitt', methods=['POST', 'GET'])
 def durchschnitt():
     if request.method == 'POST':
@@ -72,6 +74,7 @@ def durchschnitt():
         name = durchschnitt['Name']
         vorname = durchschnitt['Vorname']
         semester = durchschnitt['Semester']
+        vonwem2 = name + " " + vorname
 
 
         summe_noten = 0
@@ -92,13 +95,14 @@ def durchschnitt():
                 fehlermeldung = "Zu den folgenden Eingaben: " + name + " " + vorname + " " + semester + " sind leider noch keine Eingaben gemacht. Prüfe die Rechtschreibung oder erfasse einen Datensatz für diese Eingaben."
                 return render_template("fehlermeldung.html", fehlermeldung=fehlermeldung)
 
-        return render_template("durchschnitt.html", data=neue_auswahl)
+        return render_template("durchschnitt.html", data=neue_auswahl, vonwem2=vonwem2)
     return render_template('auswahl.html')
 
 
 #Mit der Funktion gesamtschnitt soll der Durchschnitt des gesamten Studiums eines erfassten Studenten berechnet werden. 
-#Falls in der app.route "/gesamtschnitt" POST-Daten vorhanden sind, wird if ausgeführt. Falls keine POST-Daten vorhanden sind, wird das Template auswahl.html gerendert.
+#Falls in der app.route "/gesamtschnitt" POST-Daten vorhanden sind, wird if ausgeführt. Falls keine POST-Daten vorhanden sind, wird das Template auswahl2.html gerendert.
 #In auswahl2.html befindet sich ein Formular, in welchem der gewünschte Name, Vorname angegeben werden soll. Für diese Angaben wird danach der Schnitt aller erfassten Noten für alle Semester berechnet und auf zwei Stellen gerundet. Das Resultat wird im File gesamtschnitt.html gerendert.
+#Falls die im Formular auswahl2.html eingegebenen Daten nicht mit den Daten im Json-File übereinstimmen, wird die Fehlermeldung bei else erstellt und die HTML-Page "fehlermeldung2.html" ausgegeben.
 @app.route('/gesamtschnitt', methods=['POST', 'GET'])
 def gesamtschnitt():
     if request.method == 'POST':
@@ -107,6 +111,7 @@ def gesamtschnitt():
         gesamte_auswahl = read_data_from_json("notenrechner.json")
         name = gesamtschnitt['Name']
         vorname = gesamtschnitt['Vorname']
+        vonwem3 = name + " " + vorname
 
         summe_aller_noten = 0
         anzahl_aller_noten = 0
@@ -125,10 +130,13 @@ def gesamtschnitt():
                 fehlermeldung2 = "Zu den folgenden Eingaben: " + name + " " + vorname + " sind leider noch keine Eingaben gemacht. Prüfe die Rechtschreibung oder erfasse einen Datensatz für diese Eingaben."
                 return render_template("fehlermeldung2.html", fehlermeldung2=fehlermeldung2)
 
-        return render_template("gesamtschnitt.html", gesamt=gesamter_schnitt)
+        return render_template("gesamtschnitt.html", gesamt=gesamter_schnitt, vonwem3=vonwem3)
     return render_template('auswahl2.html')
  
- # Hier sollen alle bereits erfassten Noten eines Studenten dargestellt werden.
+#Mit der Funktion dashboard sollen alle bereits erfassten Noten eines Studenten angezeigt werden. 
+#Falls in der app.route "/dashboard" POST-Daten vorhanden sind, wird if ausgeführt. Falls keine POST-Daten vorhanden sind, wird das Template auswahl3.html gerendert.
+#In auswahl3.html befindet sich ein Formular, in welche der gewünschte Name, Vorname angegeben werden soll. Wenn diese Angaben mit den vorhandenen Daten im Json-File übereinstimmen, wird eine Liste erstellt mit allen Angaben einer Note, dem Fach und dem Semester. Diese Listen werden in eine "Überliste" gespeichert, welche danach an das dashboard.html übergeben wird.
+#Falls die im Formular auswahl3.html eingegebenen Daten nicht mit den Daten im Json-File übereinstimmen, wird die Fehlermeldung bei else erstellt und die HTML-Page "fehlermeldung3.html" ausgegeben.
 @app.route('/dashboard', methods=['POST', 'GET'])
 def dashboard():
     if request.method == 'POST':
@@ -138,17 +146,17 @@ def dashboard():
         name = uebersicht['Name']
         vorname = uebersicht['Vorname']
         liste = [ ]
+        wer = name + " " + vorname
 
         for eintrag in uebersicht_voneinem:
             if eintrag["name"] == name and eintrag["vorname"] == vorname:
-                liste.append(eintrag["semester"])
-                liste.append(eintrag["fach"])
-                liste.append(eintrag["note"])
-            #else: #Falls die Eingaben nicht mit den Eingaben im Json-File Notenrechner übereinstimmen, wird die untenstehende Fehlermeldung ausgegeben.
-                #fehlermeldung3 = "Zu den folgenden Eingaben: " + name + " " + vorname + " sind leider noch keine Eingaben gemacht. Prüfe die Rechtschreibung oder erfasse einen Datensatz für diese Eingaben."
-                #return render_template("fehlermeldung3.html", fehlermeldung3=fehlermeldung3)
+                abc = [eintrag["semester"], eintrag["fach"], eintrag["note"]]
+                liste.append(abc)
+            else: #Falls die Eingaben nicht mit den Eingaben im Json-File Notenrechner übereinstimmen, wird die untenstehende Fehlermeldung ausgegeben.
+                fehlermeldung3 = "Zu den folgenden Eingaben: " + name + " " + vorname + " sind leider noch keine Eingaben gemacht. Prüfe die Rechtschreibung oder erfasse einen Datensatz für diese Eingaben."
+                return render_template("fehlermeldung3.html", fehlermeldung3=fehlermeldung3)
 
-        return render_template("dashboard.html", liste=liste)
+        return render_template("dashboard.html", liste=liste, wer=wer)
     return render_template("auswahl3.html")
 
 if __name__ == '__main__':
