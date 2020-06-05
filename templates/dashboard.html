@@ -4,7 +4,7 @@
 
 <div class="jumbotron">
     <div class = "container">
-        <h1 class="h3 mb-3 font-weight-normal">Die Übersicht aller Noten eines Studenten</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Die Übersicht aller bisher erfassten Noten von: {{ wer }}</h1>
         <div class = "table table-bordered table-light">
             <table border = 0 >
                 <thead>
@@ -14,12 +14,12 @@
                         <th scope="col">Note</th>
                     </tr>
                 </thead>
-                {% for eintrag in liste: %}  
+                {% for eintrag in liste %}  
                 <tbody>
                     <tr>
-                        <th scope="col"> {{ eintrag["semester"] }} </th>
-                        <th scope="col"> {{ eintrag["fach"] }} </th>
-                        <th scope="col"> {{ eintrag["note"] }} </th>
+                        {% for untereintrag in eintrag %}
+                        <td scope="col"> {{ untereintrag}} </td>
+                        {% endfor %}
                     </tr>
                 </tbody>   
                 {% endfor %}
