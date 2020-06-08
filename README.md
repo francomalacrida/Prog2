@@ -25,22 +25,17 @@ Im Register Upload können die benötigten Daten erfasst werden. Im Register Das
 ### Dashboard-Page: 
 - Das Formular soll mit beliebigen Zeichen ausgefüllt werden können. 
 - Falls ein Feld nicht ausgefüllt wird, soll beim Drücken auf den Anzeigen-Button eine Fehlermeldung aufkommen, da sämtliche Felder ausgefüllt werden müssen.
-- Sollten die eingegebenen Daten nicht erfasst sein oder nicht mit den erfassten Daten übereinstimmen, soll eine Fehlermeldung aufkommen. 
-    - Mit dem Button "Zurück" auf der Page der Fehlermeldung soll der User wieder zurück auf die Dashboard-Page geleitet werden. 
+- Wenn das Formular komplett ausgefüllt wurde und der die erfassten Daten durch den Anzeigen-Button bestätigt wurde und die Daten mit den erfassten Daten übereinstimmen, werden sämtliche für diesen Studenten bereits erfassten Noten angezeigt.
 
 ### Semesterschnitt-Page: 
 - Das Formular soll mit beliebigen Zeichen ausgefüllt werden können. 
 - Falls ein Feld nicht ausgefüllt wird, soll beim Drücken auf den Berechnen-Button eine Fehlermeldung aufkommen, da sämtliche Felder ausgefüllt werden müssen.
 - Wenn das Formular komplett ausgefüllt wurde und der die erfassten Daten durch den Berechnen-Button bestätigt wurde und die Daten mit den erfassten Daten übereinstimmen, wird der Schnitt dieses Studenten für dieses Semester auf zwei Stellen nach dem Komma gerundet angezeigt. 
-- Sollten die eingegebenen Daten nicht erfasst sein oder nicht mit den erfassten Daten übereinstimmen, soll eine Fehlermeldung aufkommen. 
-    - Mit dem Button "Zurück" auf der Page der Fehlermeldung soll der User wieder zurück auf die Semesterschnitt-Page geleitet werden. 
 
 ### Studiumsschnitt-Page:
 - Das Formular soll mit beliebigen Zeichen ausgefüllt werden können. 
 - Falls ein Feld nicht ausgefüllt wird, soll beim Drücken auf den Berechnen-Button eine Fehlermeldung aufkommen, da sämtliche Felder ausgefüllt werden müssen.
 - Wenn das Formular komplett ausgefüllt wurde und der die erfassten Daten durch den Berechnen-Button bestätigt wurde und die Daten mit den erfassten Daten übereinstimmen, wird der Schnitt dieses Studenten für sämtliche bisher erfassten Noten auf zwei Stellen nach dem Komma gerundet angezeigt. 
-- Sollten die eingegebenen Daten nicht erfasst sein oder nicht mit den erfassten Daten übereinstimmen, soll eine Fehlermeldung aufkommen. 
-    - Mit dem Button "Zurück" auf der Page der Fehlermeldung soll der User wieder zurück auf die Studiumsschnitt-Page geleitet werden.
 
 ## Ablaufdiagramm:
 ![alt text](https://github.com/francomalacrida/Prog2/blob/master/Ablaufdiagramm.jpg)
